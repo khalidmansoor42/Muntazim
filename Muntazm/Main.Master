@@ -1,0 +1,427 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Muntazm.Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <title>Basic Layout - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="css/Global.css" />
+    <link href="EasyUI/themes/default/easyui.css" rel="stylesheet" />
+    <link href="EasyUI/themes/icon.css" rel="stylesheet" />
+    <link href="EasyUI/themes/demo.css" rel="stylesheet" />
+    <link href="JQuery UI/jquery-ui.css" rel="stylesheet" />
+    <link href="JQuery UI/jquery-ui.structure.css" rel="stylesheet" />
+    <link href="JQuery UI/jquery-ui.theme.css" rel="stylesheet" />
+
+    <link href="alertify.js/themes/alertify.core.css" rel="stylesheet" />
+    <link href="alertify.js/themes/alertify.default.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="alertify.js/lib/alertify.min.js"></script>
+    <script src="JQuery UI/jquery-ui.js"></script>
+    <script src="EasyUI/jquery.min.js"></script>
+    <script src="EasyUI/jquery.easyui.min.js"></script>
+    <script src="js/datagrid-cellediting.js"></script>
+    <script>
+        var Global_ControlId;
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .tabs-panels{
+            margin:10px;
+            border:none;
+        }
+    </style>
+</head>
+<body onload="GetDateTime()">
+    <div class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'north'" style="height:80px">
+            <a href="#" onclick="LogOut()" style="float:right;">Log Out</a>
+             <asp:Label id="lblTime" runat="server" style="float:right; margin-right:10px;" Width="143px"></asp:Label>
+            <asp:Label id="lblLoginDateTime" runat="server" style="float:right; margin-right:5px;" Width="120px">Login DateTime:</asp:Label>
+            <asp:Label ID="lblCompanyName" runat="server" Style="float:right; margin-right:10px;" Width="250px"></asp:Label>
+        </div>
+
+        <div data-options="region:'west',split:true" title="Menus" style="width:200px;">
+                <ul class="easyui-datalist" title="" style="width:400px;height:auto;" data-options="lines:true">
+                    <li><a href="javascript:void(0)" onclick="addPanel('Bank Account Setup','BankAccountSetup.aspx')" style="color:inherit; text-decoration:inherit;">Bank Account Setup</a><br /></li>
+                    <li><a href="javascript:void(0)" onclick="addPanel('Transaction Entry','TransactionEntry.aspx')" style="color:inherit; text-decoration:inherit;">Transaction Entry</a><br /></li>
+                    <li><a href="javascript:void(0)" onclick="addPanel('PBC Setup Cost Item','Catagories.aspx')" style="color:inherit; text-decoration:inherit;">PBC Setup Cost Item</a><br /></li>
+                    <li><a href="javascript:void(0)" onclick="addPanel('Setup Function','SetupFunction.aspx')" style="color:inherit; text-decoration:inherit;">Setup Function</a><br /></li>
+                    <li><a href="javascript:void(0)" onclick="addPanel('Setup Location','SetupLocation.aspx')" style="color:inherit; text-decoration:inherit;">Setup Location</a><br /></li>
+                    <li><a href="javascript:void(0)" onclick="addPanel('Setup Cost Mainhead','CostMainheadSetup.aspx')" style="color:inherit; text-decoration:inherit;">Cost Mainhead Setup</a><br /></li>
+                    <li><a href="javascript:void(0)" onclick="addPanel('Setup Cost Item','CostSetupItem.aspx')" style="color:inherit; text-decoration:inherit;">Cost Setup Item</a><br /></li>
+                    <li><a href="javascript:void(0)" onclick="addPanel('Sub Head','subhead.aspx')" style="color:inherit; text-decoration:inherit;">Sub head</a><br /></li>
+                </ul>
+        </div>
+        <div data-options="region:'center',">
+            <asp:ContentPlaceHolder ID="cphCenter" runat="server">
+
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="SearchBox" class="easyui-dialog"  data-options="title:'My Dialog', modal:true, closed:true"  style="width:419px; height:440px;padding:10px">
+            <div style="margin-top:10px; width:65%; height:50px; text-align:left; margin:10px; float:left;">
+                    <label class="lblCaption">
+                    Search:</label>
+                    <input type="text" id="txtSearch" class="txtInput" style="float:left; margin-top:4px; width:250px;" placeholder="Enter Search Text" data-options="iconCls:'icon-search',iconWidth:38" name="txtSearch" />
+                </div>
+                <div style="margin:5px; width:98%; text-align:left; float:left;">
+                    <table id="tblSearch" title="Search Results" style="height:305px;">
+                        <thead>
+                            <tr>
+                                <th data-options="field:'Code',width:120,align:'center'">Code</th>
+                                <th data-options="field:'Description',width:240,align:'left'">Description</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+     </div>
+<script type="text/javascript">
+    var index = 0;
+
+    function getValue(SQL, DBName, ControlId) {
+        var data = { SQL: SQL, DBName: DBName }
+        data = JSON.stringify(data);
+        
+        $.ajax({
+            type: "POST",
+            url: "AjaxFunctions.aspx/getValue",
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (response) {
+                if (response.d.indexOf("Error:") > -1 && response.d.substr(0, 6) == "Error:") {
+                    alertify.error(response.d);
+                }
+                else {
+                    var control = document.getElementById(ControlId);
+                    if (control != null && control.type == "text") {
+                        $('#' + ControlId).textbox('setText', response.d);
+                    }
+                    else if (control != null && control.type == "label") {
+                        $('#' + ControlId).val(response.d);
+                    }
+                }
+            },
+            failure: function (response) {
+
+            }
+        });
+    }
+
+    $(document).ready(function () {
+
+        $("#SearchBox").dialog({
+            title: "Search Record",
+            width: 420,
+            height: 440,
+            top: ((window.outerHeight - 400) / 2) - 50,
+            left: (window.outerWidth - 400) / 2,
+            closed: true,
+            modal: true
+        });
+    });
+
+    function GetDateTime() {
+        var param1 = new Date();
+        var param2 = param1.getDate() + '/' + (param1.getMonth() + 1) + '/' + param1.getFullYear() + ' ' + param1.getHours() + ':' + param1.getMinutes() + ':' + param1.getSeconds();
+        document.getElementById('lblTime').innerHTML = param2;
+    }
+
+    function addPanel(Title, Url) {
+        checkSession();
+
+        if ($('#tt').tabs('exists', Title) == true) {
+            $('#tt').tabs('select', Title);
+            return;
+        }
+
+        index++;
+        $('#tt').tabs('add', {
+            title: Title,
+            content: '',
+            closable: true
+        });
+
+        var tab = $('#tt').tabs('getSelected');  // get selected panel
+        tab.panel('refresh', Url);
+    }
+
+    function FillComboGrid(gridid, dbname, table, idfield, descfield, filter, orderby) {
+
+        var data = {gridid:gridid, dbase: dbname, tablename: table, idfield: idfield, descfield: descfield, strfilter: filter, strsort: orderby }
+        data = JSON.stringify(data);
+        $.ajax({
+            type: "POST",
+            url: "AjaxFunctions.aspx/FillComboGrid",
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                $(gridid).datagrid({
+                    data: JSON.parse(response.d),
+                    onSelect: function (index, row) {
+                    },
+                    onDblClickRow: function (index, row) {
+                    }
+                });
+            },
+            failure: function (response) {
+
+            }
+        });
+    }
+
+    function removePanel() {
+        var tab = $('#tt').tabs('getSelected');
+        if (tab) {
+            var index = $('#tt').tabs('getTabIndex', tab);
+            $('#tt').tabs('close', index);
+        }
+    }
+
+    function LogOut()
+    {
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            url: "Index.aspx/DoLogOut",
+            success: function (response) {
+                alertify.success(response.d);
+                window.setTimeout(function () { window.location = "Login.aspx"; }, 1000)
+            }
+        });
+    }
+
+    function checkSession() {
+        $.ajax({
+            type: "POST",
+            url: "Index.aspx/CheckSession",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response.d == "0") {
+                    window.location.href = "Login.aspx";
+                    return;
+                }
+            },
+            failure: function (response) {
+
+            }
+        });
+    }
+
+    function PrintVoucher(VoucherType, VoucherNo, VoucherDate) {
+
+        if (!VoucherType)
+        {
+            alertify.error("Error: Voucher Type is missing.");
+            return;
+        }
+        else if (!VoucherNo || VoucherNo == '(Auto)') {
+            alertify.error("Error: Voucher No is missing.");
+            return;
+        }
+        else if (!VoucherDate || VoucherDate=="") {
+            alertify.error("Error: Voucher Date is missing.");
+            return;
+        }
+
+        var data = { VoucherType: VoucherType, VoucherNo: VoucherNo, VoucherDate: VoucherDate };
+
+        data = JSON.stringify(data);
+
+        $.ajax({
+
+            type: "POST",
+            url: "AjaxFunctions.aspx/PrintVoucher",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: data,
+            success: function (response) {
+                if (response.d.indexOf("Error:") > -1 && response.d.substr(0, 6) == "Error:") {
+                    alertify.error(response.d);
+                }
+                else {
+                    if (response.d == "1") {
+                        var win = window.open("RptViewer.aspx", "List", "toolbar=yes, resizable=no,width=1137px,height=925px");
+                        win.onresize = function () {
+                            win.resizeTo(1137, 925);
+                        }
+                    }
+                }
+            },
+            failure: function (response) {
+            }
+        });
+    }
+
+    function BuildSearchSql(sqlValue) {
+        var element = document.getElementById(Global_ControlId);
+        var fields = element.dataset.filterfields.split(",");
+        var criteria = "";
+        for (var i = 0; i <= fields.length - 1; i++) {
+            if (i == 0)
+                criteria += " WHERE " + fields[i] + " LIKE '%" + sqlValue + "%'";
+            else if (i > 0)
+                criteria += " OR " + fields[i] + " LIKE '%" + sqlValue + "%'";
+        }
+
+        return element.dataset.selectsql + criteria;
+    }
+
+    function ShowSearchBox(ControlId) {
+        Global_ControlId = ControlId;
+        $('#SearchBox').dialog({ title: $('#' + Global_ControlId).data('searchtitle') })
+        $('#SearchBox').dialog('open');
+        $('#txtSearch').textbox({
+            inputEvents: $.extend({}, $.fn.textbox.defaults.inputEvents, {
+                keyup: function (e) {
+
+                    FillSearchGrid(1, 10, BuildSearchSql($(this).val()));
+                }
+            })
+        })
+
+        FillSearchGrid(1, 10, BuildSearchSql(""));
+        $('#txtSearch').textbox('textbox').focus();
+    }
+
+    function FillSearchGrid(PageNumber, PageSize, sql) {
+        var data = { PageNumber: PageNumber, PageSize: PageSize, sql: sql }
+        data = JSON.stringify(data);
+        $.ajax({
+            type: "POST",
+            url: "AjaxFunctions.aspx/Search",
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response.d.indexOf("Error:") > -1 && response.d.substr(0, 6) == "Error:") {
+                    alertify.error(response.d);
+                }
+                else {
+
+                    $('#tblSearch').datagrid({
+                        data: JSON.parse(response.d),
+                        singleSelect: true,
+                        resizable: true,
+                        pageList: [5, 10, 20, 30, 40, 50],
+                        scrollbarSize: 5,
+                        onClickRow: function (i, r) {
+
+                        },
+                        onDblClickRow: function (i, r) {
+
+                            var array = $.map(r, function (value, index) {
+                                return [value];
+                            });
+                            if ($('#' + Global_ControlId).data('controltype') == "datalist")
+                            {
+                                $('#' + Global_ControlId).datalist('appendRow', {
+                                    value: array[$('#' + Global_ControlId).data('fieldindex')],
+                                    text: array[$('#' + Global_ControlId).data('fieldindex')]
+                                });
+                            }
+                            else
+                            {
+                                $('#' + Global_ControlId).textbox('setText', array[$('#' + Global_ControlId).data('fieldindex')]);
+                            }
+                            
+                            $('#SearchBox').dialog('close');
+                            $('#tblSearch').datagrid({ data: [] });
+
+                        },
+                        onDblClickCell: function (index, field, value) {
+
+                        },
+                        onLoadSuccess: function (data) {
+                            $('#tblSearch').datagrid('getPager').pagination({
+                                showRefresh: false,
+                                onSelectPage: function (pageNumber, pageSize) {
+
+                                    FillSearchGrid(pageNumber, pageSize, sql);
+                                }
+                            });
+                        }
+                    });
+                }
+            },
+            failure: function (response) {
+
+            }
+        });
+    }
+
+    function GetSqlDate(CurrentDate) {
+
+        var DateParts = CurrentDate.split("-")
+        return DateParts[2] + "-" + DateParts[1] + "-" + DateParts[0];
+    }
+
+    function FinancialMonth(CurrentDate) {
+        var FMonth;
+        var Month = parseInt(GetMonth(CurrentDate));
+        if (Month < 7) {
+            FMonth = Month + 6;
+        }
+        else {
+            FMonth = Month - 6;
+        }
+        if (FMonth.toString().length == 2) {
+            return FMonth;
+        }
+        else {
+            FMonth = "0" + FMonth.toString();
+            return FMonth;
+        }
+
+    }
+
+    function FinancialYear(CurrentDate) {
+
+        var DateParts = CurrentDate.split("-")
+        var month = DateParts[1];
+        var year = DateParts[2];
+        if (month < 7) {
+            return (parseInt(year) - 1) + "-" + year;
+        }
+        else {
+            return year + "-" + (parseInt(year) + 1);
+        }
+    }
+
+    function GetMonth(CurrentDate) {
+
+        var DateParts = CurrentDate.split("-")
+        return DateParts[1];
+    }
+
+    window.onkeyup = function (event) {
+
+        if (event.keyCode == 27) {
+
+            $('#SearchBox').dialog('close');
+        }
+    }
+    function FillGrid(Grid, DBName, SqlQuery) {
+        $.ajax({
+            type: "POST",
+            url: "AjaxFunctions.aspx/FillGrid",
+            data: JSON.stringify({ DBName: DBName, SqlQuery: SqlQuery }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                response = JSON.parse(response.d);
+                $(Grid).datagrid({ data: response });
+            }
+        });
+    }
+</script>
+</body>
+</html>

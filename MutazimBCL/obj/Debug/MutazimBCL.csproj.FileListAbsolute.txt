@@ -1,0 +1,9 @@
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\MutazimBCL\bin\Debug\MutazimBCL.dll
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\MutazimBCL\bin\Debug\MutazimBCL.pdb
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\MutazimBCL\bin\Debug\MuntazimBLL.dll
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\MutazimBCL\bin\Debug\MuntazimDAL.dll
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\MutazimBCL\bin\Debug\MuntazimBLL.pdb
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\MutazimBCL\bin\Debug\MuntazimDAL.pdb
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\MutazimBCL\obj\Debug\MutazimBCL.csprojResolveAssemblyReference.cache
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\MutazimBCL\obj\Debug\MutazimBCL.dll
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\MutazimBCL\obj\Debug\MutazimBCL.pdb

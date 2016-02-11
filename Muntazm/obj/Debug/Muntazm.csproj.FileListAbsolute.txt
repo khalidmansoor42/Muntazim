@@ -1,0 +1,38 @@
+D:\Projects\Muntazm\Muntazm\bin\Muntazm.dll.config
+D:\Projects\Muntazm\Muntazm\bin\Muntazm.dll
+D:\Projects\Muntazm\Muntazm\bin\Muntazm.pdb
+D:\Projects\Muntazm\Muntazm\obj\Debug\Muntazm.csprojResolveAssemblyReference.cache
+D:\Projects\Muntazm\Muntazm\obj\Debug\Muntazm.dll
+D:\Projects\Muntazm\Muntazm\obj\Debug\Muntazm.pdb
+D:\Projects\Muntazm\Muntazm\bin\Newtonsoft.Json.dll
+D:\Projects\Muntazm\Muntazm\bin\Newtonsoft.Json.xml
+E:\Azam\Muntazm\Muntazm\bin\Muntazm.dll.config
+E:\Azam\Muntazm\Muntazm\bin\Muntazm.dll
+E:\Azam\Muntazm\Muntazm\bin\Muntazm.pdb
+E:\Azam\Muntazm\Muntazm\bin\Newtonsoft.Json.dll
+E:\Azam\Muntazm\Muntazm\bin\Newtonsoft.Json.xml
+E:\Azam\Muntazm\Muntazm\obj\Debug\Muntazm.csprojResolveAssemblyReference.cache
+E:\Azam\Muntazm\Muntazm\obj\Debug\Muntazm.dll
+E:\Azam\Muntazm\Muntazm\obj\Debug\Muntazm.pdb
+D:\Muntazm Copy\Muntazm\obj\Debug\Muntazm.csprojResolveAssemblyReference.cache
+D:\Muntazm Copy\Muntazm\obj\Debug\Muntazm.dll
+D:\Muntazm Copy\Muntazm\obj\Debug\Muntazm.pdb
+D:\Muntazm Copy\Muntazm\bin\Muntazm.dll.config
+D:\Muntazm Copy\Muntazm\bin\Muntazm.dll
+D:\Muntazm Copy\Muntazm\bin\Muntazm.pdb
+D:\Muntazm Copy\Muntazm\bin\Newtonsoft.Json.dll
+D:\Muntazm Copy\Muntazm\bin\Newtonsoft.Json.xml
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\bin\Muntazm.dll.config
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\bin\Muntazm.dll
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\bin\Muntazm.pdb
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\bin\Newtonsoft.Json.dll
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\bin\Newtonsoft.Json.xml
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\obj\Debug\Muntazm.csprojResolveAssemblyReference.cache
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\obj\Debug\Muntazm.dll
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\obj\Debug\Muntazm.pdb
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\bin\MuntazimBLL.dll
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\bin\MutazimBCL.dll
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\bin\MuntazimBLL.pdb
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\bin\MutazimBCL.pdb
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\bin\MuntazimDAL.dll
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\bin\MuntazimDAL.pdb

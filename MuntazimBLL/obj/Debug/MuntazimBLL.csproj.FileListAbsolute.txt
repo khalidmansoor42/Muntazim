@@ -1,0 +1,4 @@
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\MuntazimBLL\bin\Debug\MuntazimBLL.dll
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\MuntazimBLL\bin\Debug\MuntazimBLL.pdb
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\MuntazimBLL\obj\Debug\MuntazimBLL.dll
+C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\MuntazimBLL\obj\Debug\MuntazimBLL.pdb
