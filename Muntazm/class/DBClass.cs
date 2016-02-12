@@ -14,7 +14,9 @@ public class DBClass
     string constr;
     public DBClass(string InitialDatabaseName)
     {
-        string constr = @"Data Source=DESKTOP-IAI0RIM\SQLEXPRESS;Initial Catalog=" + InitialDatabaseName + ";User ID=sa";
+
+       // string Dbusername = "DESKTOP-IAI0RIM\Khalid";
+        string constr = @"Data Source=DESKTOP-IAI0RIM\SQLEXPRESS;Initial Catalog=" + InitialDatabaseName + ";Integrated Security=SSPI;";
         Con = new SqlConnection(constr);
         Com = new SqlCommand();
         Com.Connection = Con;

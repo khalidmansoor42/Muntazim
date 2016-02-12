@@ -68,7 +68,7 @@
         $(document).ready(function () {
 
             checkCookie();
-            $("#txtUserName").textbox("setText", "admin");
+            $("#txtUserName").textbox("setText", "azam");
             $("#txtPassword").textbox("setText", "1");
         });
 

@@ -69,6 +69,7 @@
     <Content Include="BankAccountSetup.aspx" />
     <Content Include="CostMainheadSetup.aspx" />
     <Content Include="CostSetupItem.aspx" />
+    <Content Include="css\custom-grid.css" />
     <Content Include="css\Global.css" />
     <Content Include="Index.aspx" />
     <Content Include="js\datagrid-cellediting.js" />
@@ -76,6 +77,8 @@
     <Content Include="Login.aspx" />
     <Content Include="RptViewer.aspx" />
     <Content Include="SearchRec.aspx" />
+    <Content Include="SetupCostMainHead.aspx" />
+    <Content Include="SetupServiceSupplier.aspx" />
     <Content Include="SubHead.aspx" />
     <Content Include="TransactionEntry.aspx" />
     <Content Include="Web.config">
@@ -149,6 +152,20 @@
     </Compile>
     <Compile Include="SearchRec.aspx.designer.cs">
       <DependentUpon>SearchRec.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetupCostMainHead.aspx.cs">
+      <DependentUpon>SetupCostMainHead.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SetupCostMainHead.aspx.designer.cs">
+      <DependentUpon>SetupCostMainHead.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetupServiceSupplier.aspx.cs">
+      <DependentUpon>SetupServiceSupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SetupServiceSupplier.aspx.designer.cs">
+      <DependentUpon>SetupServiceSupplier.aspx</DependentUpon>
     </Compile>
     <Compile Include="SubHead.aspx.cs">
       <DependentUpon>SubHead.aspx</DependentUpon>

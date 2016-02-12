@@ -38,7 +38,7 @@ namespace Muntazm
         [WebMethod(EnableSession=true)]
         public static string DoLogin(string UserName, string Password, string CompanyId, string CompanyName)
         {
-            DBClass db = new DBClass("Muntazm");
+            DBClass db = new DBClass("Accounts");
             string result;
             db.Con.Open();
             db.Com.CommandText = "SELECT COUNT(*) FROM [Users] WHERE [UserName]='" + UserName + "' AND [Password]='" + Password + "'";

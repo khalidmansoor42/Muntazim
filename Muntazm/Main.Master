@@ -16,7 +16,9 @@
 
     <link href="alertify.js/themes/alertify.core.css" rel="stylesheet" />
     <link href="alertify.js/themes/alertify.default.css" rel="stylesheet" />
-
+    <!--Grid Style-->
+    <link href="css/custom-grid.css" rel="stylesheet" />
+    <!--Grid Style-->
     <script type="text/javascript" src="alertify.js/lib/alertify.min.js"></script>
     <script src="JQuery UI/jquery-ui.js"></script>
     <script src="EasyUI/jquery.min.js"></script>
@@ -47,12 +49,11 @@
                 <ul class="easyui-datalist" title="" style="width:400px;height:auto;" data-options="lines:true">
                     <li><a href="javascript:void(0)" onclick="addPanel('Bank Account Setup','BankAccountSetup.aspx')" style="color:inherit; text-decoration:inherit;">Bank Account Setup</a><br /></li>
                     <li><a href="javascript:void(0)" onclick="addPanel('Transaction Entry','TransactionEntry.aspx')" style="color:inherit; text-decoration:inherit;">Transaction Entry</a><br /></li>
-                    <li><a href="javascript:void(0)" onclick="addPanel('PBC Setup Cost Item','Catagories.aspx')" style="color:inherit; text-decoration:inherit;">PBC Setup Cost Item</a><br /></li>
-                    <li><a href="javascript:void(0)" onclick="addPanel('Setup Function','SetupFunction.aspx')" style="color:inherit; text-decoration:inherit;">Setup Function</a><br /></li>
-                    <li><a href="javascript:void(0)" onclick="addPanel('Setup Location','SetupLocation.aspx')" style="color:inherit; text-decoration:inherit;">Setup Location</a><br /></li>
                     <li><a href="javascript:void(0)" onclick="addPanel('Setup Cost Mainhead','CostMainheadSetup.aspx')" style="color:inherit; text-decoration:inherit;">Cost Mainhead Setup</a><br /></li>
                     <li><a href="javascript:void(0)" onclick="addPanel('Setup Cost Item','CostSetupItem.aspx')" style="color:inherit; text-decoration:inherit;">Cost Setup Item</a><br /></li>
                     <li><a href="javascript:void(0)" onclick="addPanel('Sub Head','subhead.aspx')" style="color:inherit; text-decoration:inherit;">Sub head</a><br /></li>
+                    <li><a href="javascript:void(0)" onclick="addPanel('Cost Main Head Setup','SetupCostMainHead.aspx')" style="color:inherit; text-decoration:inherit;">Bootstrap Cost</a><br /></li>
+                    <li><a href="javascript:void(0)" onclick="addPanel('Service Supplier Setup','SetupServiceSupplier.aspx')" style="color:inherit; text-decoration:inherit;">Service Supplier</a><br /></li>
                 </ul>
         </div>
         <div data-options="region:'center',">

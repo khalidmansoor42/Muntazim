@@ -36,3 +36,17 @@ C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\bin\MuntazimBLL.pdb
 C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\bin\MutazimBCL.pdb
 C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\bin\MuntazimDAL.dll
 C:\Users\Khalid\Downloads\Blue_Sample\Muntazm Copy\Muntazm\bin\MuntazimDAL.pdb
+C:\Users\Khalid\Source\Repos\Muntazim\Muntazm\bin\Muntazm.dll.config
+C:\Users\Khalid\Source\Repos\Muntazim\Muntazm\bin\Muntazm.dll
+C:\Users\Khalid\Source\Repos\Muntazim\Muntazm\bin\Muntazm.pdb
+C:\Users\Khalid\Source\Repos\Muntazim\Muntazm\bin\MuntazimBLL.dll
+C:\Users\Khalid\Source\Repos\Muntazim\Muntazm\bin\MutazimBCL.dll
+C:\Users\Khalid\Source\Repos\Muntazim\Muntazm\bin\Newtonsoft.Json.dll
+C:\Users\Khalid\Source\Repos\Muntazim\Muntazm\bin\MuntazimDAL.dll
+C:\Users\Khalid\Source\Repos\Muntazim\Muntazm\bin\MuntazimBLL.pdb
+C:\Users\Khalid\Source\Repos\Muntazim\Muntazm\bin\MutazimBCL.pdb
+C:\Users\Khalid\Source\Repos\Muntazim\Muntazm\bin\Newtonsoft.Json.xml
+C:\Users\Khalid\Source\Repos\Muntazim\Muntazm\bin\MuntazimDAL.pdb
+C:\Users\Khalid\Source\Repos\Muntazim\Muntazm\obj\Debug\Muntazm.csprojResolveAssemblyReference.cache
+C:\Users\Khalid\Source\Repos\Muntazim\Muntazm\obj\Debug\Muntazm.dll
+C:\Users\Khalid\Source\Repos\Muntazim\Muntazm\obj\Debug\Muntazm.pdb
